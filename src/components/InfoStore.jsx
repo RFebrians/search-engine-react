@@ -4,7 +4,7 @@ import Clock from "react-live-clock";
 
 /**
  * 
- * function BookStore(props){
+ * function InfoStore(props){
 	
 	const [searchTerm,setsearchTerm] = useState('');
 	const [screen,setScreen] = useState ("default") ;
@@ -13,11 +13,11 @@ import Clock from "react-live-clock";
  */
 
 /**
- * The Parent BookStore Component
+ * The Parent InfoStore Component
  *
  * The child components could have been moved into their separate files, but ..
  */
-class BookStore extends Component {
+class InfoStore extends Component {
   constructor(props) {
     super(props);
 
@@ -69,7 +69,7 @@ class BookStore extends Component {
 
   render() {
     return (
-      <div className="BookStore">
+      <div className="InfoStore">
         <HeaderComponent />
         <SearchComponent updateSearchTerm={this.updateSearchTerm} />
         {
@@ -399,4 +399,4 @@ function FooterComponent() {
   );
 }
 
-export default BookStore;
+export default InfoStore;

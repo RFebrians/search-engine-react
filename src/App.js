@@ -1,11 +1,11 @@
-import React from 'react'
-import './css/bookstore.css'
-import BookStore from './components/BookStore'
+import React from "react";
+import "./css/bookstore.css";
+import InfoStore from "./components/InfoStore";
 
 function App() {
   return (
     <div className="App">
-      <BookStore />
+      <InfoStore />
     </div>
   );
 }
