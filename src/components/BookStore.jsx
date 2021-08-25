@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BooksDataService from "../api/BooksDataService";
+import Clock from "react-live-clock";
 
 /**
  * 
@@ -184,7 +185,7 @@ class ResultsComponent extends Component {
         <div className="container has-text-left is-fluid">
           <div className="columns is-multiline">
             {this.state.books.map((book) => (
-              <div className="column is-half" key={book.isbn}>
+              <div className="column is-half" key={book.card}>
                 <CardComponent
                   book={book}
                   showBookDetails={this.props.showBookDetails}
@@ -216,10 +217,10 @@ class CardComponent extends Component {
             <div className="content">
               <p>
                 <strong>{this.props.book.title}</strong>{" "}
-                <small>{this.props.book.author}</small>
+                <small>{this.props.book.nama}</small>
                 <br />
-                {this.props.book.publisher} <br />
-                {this.props.book.publish_date}
+                {this.props.book.lokasi} <br />
+                {this.props.book.hari}
               </p>
               <button
                 className="button mr-2"
@@ -270,14 +271,14 @@ class BookDetailsComponent extends Component {
                   <div className="content has-text-left">
                     <p>
                       <strong>{this.props.selectedBook.title}</strong> <br />
-                      <small>By {this.props.selectedBook.author}</small>
                       <br />
-                      <small>ISBN: {this.props.selectedBook.isbn}</small>
+                      <strong>{this.props.selectedBook.nama}</strong>
                       <br />
-                      Publisher: {this.props.selectedBook.publisher} <br />
-                      Date of Publication:{" "}
-                      {this.props.selectedBook.publish_date} <br />
-                      Number of Pages: {this.props.selectedBook.numOfPages}
+                      <small>ID: {this.props.selectedBook.card}</small>
+                      <br />
+                      Lokasi: {this.props.selectedBook.lokasi} <br />
+                      Hari: {this.props.selectedBook.hari} <br />
+                      Jam : {this.props.selectedBook.waktu}
                     </p>
                   </div>
                 </div>
@@ -299,7 +300,10 @@ function HeaderComponent() {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <p className="navbar-item">
-            <img src="/logo.png" alt="Information Access" />
+            <img
+              src="https://img.icons8.com/color/48/000000/downtown.png"
+              alt="Information Access"
+            />
           </p>
 
           <button
@@ -315,7 +319,10 @@ function HeaderComponent() {
         <div className="navbar-end is-uppercase has-text-weight-bold">
           <div className="navbar-item has-text-primary">Home</div>
           <div className="navbar-item">
-            <img src="/icon_search.png" alt="Search" />
+            <img
+              src="https://img.icons8.com/fluency/48/000000/home.png"
+              alt="Search"
+            />
           </div>
         </div>
       </nav>
@@ -376,7 +383,11 @@ function FooterComponent() {
           <div className="columns">
             <div className="column">On Purpose for Testing</div>
             <div className="column">
-              25.9.21
+              <Clock
+                format={"HH:mm:ss"}
+                ticking={true}
+                timezone={"Jakarta/Asia"}
+              />
               <br />
               Referensi : <br />
               https://jadwaldokter.xyz <br />
